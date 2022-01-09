@@ -1,0 +1,42 @@
+.sticky-footer.bg-white {
+    bottom: 0;
+    position: fixed;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: 10px;
+}
+
+.vertical-center {
+    min-height: 100%;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.vertical-center .row {
+    display: block;
+    text-align: center;
+}
+
+.btn_link{
+    margin-bottom: 50px;
+    color: white;
+}
+
+.btn_link_dept{
+    background-color: blue;
+}
+.btn_link_emp{
+    background-color:green;
+}
+
+.titre {
+    margin: auto;
+    padding: 1%;
+}
+
+
+.img_container .bg_departement, .img_container .bg_employees{
+    width: 300px;
+    height: 300px;
+}

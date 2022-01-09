@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout_page.html}">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Détail Employés</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container-fluid" layout:fragment="content" th:fragment="content">
+        <div class="row">
+            <h4 class="text-center titre">Détail Employé</h4>
+        </div>
+		<div class="row">
+			<div class="col-sm-12 col-md-12 offset-md-1">
+				<div class="card">
+					<div class="card-body">
+                        <div class="row">                            
+                            <form th:object="${form}" id="formEmploye" class="row" th:if="${form.id}">
+									<input type="hidden" th:field="*{id}" id="exist_id"/>
+									<div th:if="${errorMsg}" class="col-sm-12 err">
+										<div class="text-center" th:replace="fragments/alert::flash-danger(body=${errorMsg})"></div>
+									</div>
+									<div th:if="${successMsg}" class="col-sm-12 succ"> 
+										<div class="text-center" th:replace="fragments/alert::flash-success(body=${successMsg})"></div>
+									</div>
+									
+									<div class="form-group col-sm-12">
+										<label class="control-label">Matricule :</label>
+										<input type="text" id="matricule" name="matricule" th:value="${form.matricule}" 
+										 class="form-control form-control-sm capitalize" disabled="true"/>
+									</div>
+
+                                    <div class="form-group col-sm-12">
+										<label class="control-label">Prénom :</label>
+										<input type="text" id="prenom" name="prenom" th:value="${form.prenom}" 
+										 class="form-control form-control-sm capitalize" disabled="true"/>
+									</div>
+
+                                    <div class="form-group col-sm-12">
+										<label class="control-label">Nom :</label>
+										<input type="text" id="nom" name="nom" th:value="${form.nom}" 
+										 class="form-control form-control-sm capitalize" disabled="true"/>
+									</div>
+
+                                    <div class="form-group col-sm-12">
+										<label class="control-label">Email :</label>
+										<input type="text" id="email" name="email" th:value="${form.email}" 
+										 class="form-control form-control-sm capitalize" disabled="true"/>
+									</div>
+
+									<div class="form-group col-sm-12">
+										<label class="control-label">Adresse :</label>
+										<input type="text" id="adresse" name="adresse" th:value="${form.adresse}"
+										 class="form-control form-control-sm capitalize" disabled="true"/>
+									</div>
+
+                                    <div class="form-group col-sm-12">
+										<label class="control-label">Téléphone :</label>
+										<input type="text" id="telephone" name="telephone" th:value="${form.telephone}" 
+										 class="form-control form-control-sm capitalize" disabled="true"/>
+									</div>
+
+									<div class="form-group col-sm-12">
+										<label class="control-label">Département :</label>
+										<input type="text" id="departement" name="departement" 
+										 th:if="${form.departement != null}" th:value="${form.departement.libelle}" 
+										 class="form-control form-control-sm" disabled="true"/>
+									</div>
+								</form>
+				        </div>
+			        </div>
+		        </div>
+	        </div>
+		</div>
+	</div>
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; 2019 All Right Reserved designed by
+                    <a target="_blank" href="https://www.idecri.com">LAMINE NDOUR</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

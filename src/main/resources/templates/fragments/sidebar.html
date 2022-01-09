@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+  <nav
+		class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" th:fragment="sidebar">
+
+    <ul class="navbar-nav ml-auto">
+
+    
+      <!-- Sidebar - Brand 
+     
+      th:href="@{/Procedure/}"
+      -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/}">
+        <div class="sidebar-brand-text mx-3">PROJET DEPARTEMENT</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span id="side-menu">Tableau de bord</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+       <!-- Nav Item - Pages Collapse Menu -->
+       <!-- sec:authorize="@myConfigAccess.matay('/Objectif/')" -->
+     <li class="nav-item">
+        <a class="nav-link" href="/">
+          <i class="fas fa-home"></i>
+          <span id="side-menu">Accueil</span>
+        </a>
+      </li>
+
+          	
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/departements}">
+          <i class="fas fa-bars"></i>
+          <span id="side-menu">Départements</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/employes}">
+          <i class="fas fa-bars"></i>
+          <span id="side-menu">Employés</span>
+        </a>
+      </li>
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+  </nav>
+</body>
+</html>
